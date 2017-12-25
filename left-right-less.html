@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  
+</style>
+<body>
+  <div class="cabin-group ng-scope" ng-repeat="(key, cabins) in groups">
+    <div class="group-title">
+      <!-- 航司直销 -->
+      <div class="ng-hide" ng-show="key==='0'">
+        <a class="titleName one-line">
+          罗盘协议
+        </a>
+        <div class="description">
+        </div>
+      </div>
+    <div class="cabin-items">
+      <!-- ngRepeat: cabin in cabins | orderBy : ['+price', '-quantity'] --><div class="cabin-item ng-scope golden" data-product-type="2" data-info-source="01" data-resource="01" data-cabin="U" data-cabin-class="Y" ng-class="{'cabin-item-top': !$first}" ng-repeat="cabin in cabins | orderBy : ['+price', '-quantity']">
+
+        <div class="cabin-bill ng-binding">
+          行程单
+        </div>
+        
+        <div class="cabin-origin">
+          <!-- ngIf: cabin.infoSource !== PRODUCT_INFO_SOURCE.B2T --><span ng-if="cabin.infoSource !== PRODUCT_INFO_SOURCE.B2T" class="ng-binding ng-scope">
+            罗盘价
+          </span><!-- end ngIf: cabin.infoSource !== PRODUCT_INFO_SOURCE.B2T -->
+          <!-- ngIf: cabin.infoSource === PRODUCT_INFO_SOURCE.B2T -->
+        </div>
+
+        <div class="cabin-class">
+          <span class="ng-binding">经济舱</span>
+          <!-- ngIf: csLogined -->
+        </div>
+
+        <div class="cabin-policy" ng-class="{'isGov': key === '3'}">
+          
+          <span class="recomend">荐</span>
+        </div>
+
+        <div class="cabin-discount">
+          <span class="ng-binding">8.6折</span>
+        </div>
+
+
+        <div class="cabin-price" ng-class="{'isGov': key === '3'}">
+          <!-- ngIf: key === '3' -->
+          <span>￥</span>
+          <span class="price fs18 ng-binding" cabin-origin-price="1070">1070</span>
+        </div>
+
+        <div class="price-addition pointer wd40 pl0">
+          <!-- ngIf: cabin.infoSource === PRODUCT_INFO_SOURCE.AIRLINE && isCivAirlineIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TWO_PARTIE && isCivTwoPartIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TRI_PARTITE && isCivThreePartIns
+            || cabin.infoSource === isCtrip && isCivCtripIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.B2T && isCivB2TIns -->
+        </div>
+
+        <div class="cabin-actions">
+          <!-- ngIf: lpSelectVisible -->
+          <!-- ngIf: lpBookVisible --><button class="btn btn-orange fs12 ng-scope" ng-disabled="!cabin.price" ng-click="book(cabin);" ng-if="lpBookVisible">
+            预 订
+          </button><!-- end ngIf: lpBookVisible -->
+        </div>
+
+        <div class="cabin-left ng-binding">
+          6张
+        </div>
+        
+      </div><!-- end ngRepeat: cabin in cabins | orderBy : ['+price', '-quantity'] --><div class="cabin-item ng-scope cabin-item-top" data-product-type="2" data-info-source="01" data-resource="01" data-cabin="M1" data-cabin-class="Y" ng-class="{'cabin-item-top': !$first}" ng-repeat="cabin in cabins | orderBy : ['+price', '-quantity']">
+
+        <div class="cabin-bill ng-binding">
+          行程单
+        </div>
+        
+        <div class="cabin-origin">
+          <!-- ngIf: cabin.infoSource !== PRODUCT_INFO_SOURCE.B2T --><span ng-if="cabin.infoSource !== PRODUCT_INFO_SOURCE.B2T" class="ng-binding ng-scope">
+            罗盘价
+          </span><!-- end ngIf: cabin.infoSource !== PRODUCT_INFO_SOURCE.B2T -->
+          <!-- ngIf: cabin.infoSource === PRODUCT_INFO_SOURCE.B2T -->
+        </div>
+
+        <div class="cabin-class">
+          <span class="ng-binding">经济舱</span>
+          <!-- ngIf: csLogined -->
+        </div>
+
+        <div class="cabin-policy" ng-class="{'isGov': key === '3'}">
+          <!-- ngIf: cabin.infoSource !== isCtrip --><span ng-if="cabin.infoSource !== isCtrip" uib-popover-template="popoverConfigs.ruleTip.template" popover-placement="auto bottom-left" popover-trigger="mouseenter" class="ng-scope">退改签</span><!-- end ngIf: cabin.infoSource !== isCtrip -->
+          <!-- ngIf: cabin.infoSource === isCtrip && cabin.policy.r1 -->
+          <!-- ngIf: cabin.baggage -->
+          <!-- ngIf: cabin.infoSource === PRODUCT_INFO_SOURCE.AIRLINE && isCivAirlineIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TWO_PARTIE && isCivTwoPartIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TRI_PARTITE && isCivThreePartIns
+            || cabin.infoSource === isCtrip && isCivCtripIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.B2T && isCivB2TIns -->
+          <span class="recomend">荐</span>
+        </div>
+
+        <div class="cabin-discount">
+          <span class="ng-binding">9.1折</span>
+        </div>
+
+
+        <div class="cabin-price" ng-class="{'isGov': key === '3'}">
+          <!-- ngIf: key === '3' -->
+          <span>￥</span>
+          <span class="price fs18 ng-binding" cabin-origin-price="1130">1130</span>
+        </div>
+
+        <div class="price-addition pointer wd40 pl0">
+          <!-- ngIf: cabin.infoSource === PRODUCT_INFO_SOURCE.AIRLINE && isCivAirlineIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TWO_PARTIE && isCivTwoPartIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TRI_PARTITE && isCivThreePartIns
+            || cabin.infoSource === isCtrip && isCivCtripIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.B2T && isCivB2TIns -->
+        </div>
+
+        <div class="cabin-actions">
+          <!-- ngIf: lpSelectVisible -->
+          <!-- ngIf: lpBookVisible --><button class="btn btn-orange fs12 ng-scope" ng-disabled="!cabin.price" ng-click="book(cabin);" ng-if="lpBookVisible">
+            预 订
+          </button><!-- end ngIf: lpBookVisible -->
+        </div>
+
+        <div class="cabin-left ng-binding">
+          
+        </div>
+        
+      </div><!-- end ngRepeat: cabin in cabins | orderBy : ['+price', '-quantity'] --><div class="cabin-item ng-scope cabin-item-top" data-product-type="2" data-info-source="01" data-resource="01" data-cabin="M" data-cabin-class="Y" ng-class="{'cabin-item-top': !$first}" ng-repeat="cabin in cabins | orderBy : ['+price', '-quantity']">
+
+        <div class="cabin-bill ng-binding">
+          行程单
+        </div>
+        
+        <div class="cabin-origin">
+          <!-- ngIf: cabin.infoSource !== PRODUCT_INFO_SOURCE.B2T --><span ng-if="cabin.infoSource !== PRODUCT_INFO_SOURCE.B2T" class="ng-binding ng-scope">
+            罗盘价
+          </span><!-- end ngIf: cabin.infoSource !== PRODUCT_INFO_SOURCE.B2T -->
+          <!-- ngIf: cabin.infoSource === PRODUCT_INFO_SOURCE.B2T -->
+        </div>
+
+        <div class="cabin-class">
+          <span class="ng-binding">经济舱</span>
+          <!-- ngIf: csLogined -->
+        </div>
+
+        <div class="cabin-policy" ng-class="{'isGov': key === '3'}">
+          <!-- ngIf: cabin.infoSource !== isCtrip --><span ng-if="cabin.infoSource !== isCtrip" uib-popover-template="popoverConfigs.ruleTip.template" popover-placement="auto bottom-left" popover-trigger="mouseenter" class="ng-scope">退改签</span><!-- end ngIf: cabin.infoSource !== isCtrip -->
+          <!-- ngIf: cabin.infoSource === isCtrip && cabin.policy.r1 -->
+          <!-- ngIf: cabin.baggage -->
+          <!-- ngIf: cabin.infoSource === PRODUCT_INFO_SOURCE.AIRLINE && isCivAirlineIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TWO_PARTIE && isCivTwoPartIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TRI_PARTITE && isCivThreePartIns
+            || cabin.infoSource === isCtrip && isCivCtripIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.B2T && isCivB2TIns -->
+          <span class="recomend">荐</span>
+        </div>
+
+        <div class="cabin-discount">
+          <span class="ng-binding">9.3折</span>
+        </div>
+
+
+        <div class="cabin-price" ng-class="{'isGov': key === '3'}">
+          <!-- ngIf: key === '3' -->
+          <span>￥</span>
+          <span class="price fs18 ng-binding" cabin-origin-price="1150">1150</span>
+        </div>
+
+        <div class="price-addition pointer wd40 pl0">
+          <!-- ngIf: cabin.infoSource === PRODUCT_INFO_SOURCE.AIRLINE && isCivAirlineIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TWO_PARTIE && isCivTwoPartIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TRI_PARTITE && isCivThreePartIns
+            || cabin.infoSource === isCtrip && isCivCtripIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.B2T && isCivB2TIns -->
+        </div>
+
+        <div class="cabin-actions">
+          <!-- ngIf: lpSelectVisible -->
+          <!-- ngIf: lpBookVisible --><button class="btn btn-orange fs12 ng-scope" ng-disabled="!cabin.price" ng-click="book(cabin);" ng-if="lpBookVisible">
+            预 订
+          </button><!-- end ngIf: lpBookVisible -->
+        </div>
+
+        <div class="cabin-left ng-binding">
+          
+        </div>
+        
+      </div><!-- end ngRepeat: cabin in cabins | orderBy : ['+price', '-quantity'] --><div class="cabin-item ng-scope cabin-item-top" data-product-type="2" data-info-source="01" data-resource="01" data-cabin="A" data-cabin-class="F" ng-class="{'cabin-item-top': !$first}" ng-repeat="cabin in cabins | orderBy : ['+price', '-quantity']">
+
+        <div class="cabin-bill ng-binding">
+          行程单
+        </div>
+        
+        <div class="cabin-origin">
+          <!-- ngIf: cabin.infoSource !== PRODUCT_INFO_SOURCE.B2T --><span ng-if="cabin.infoSource !== PRODUCT_INFO_SOURCE.B2T" class="ng-binding ng-scope">
+            罗盘价
+          </span><!-- end ngIf: cabin.infoSource !== PRODUCT_INFO_SOURCE.B2T -->
+          <!-- ngIf: cabin.infoSource === PRODUCT_INFO_SOURCE.B2T -->
+        </div>
+
+        <div class="cabin-class">
+          <span class="ng-binding">头等舱</span>
+          <!-- ngIf: csLogined -->
+        </div>
+
+        <div class="cabin-policy" ng-class="{'isGov': key === '3'}">
+          <!-- ngIf: cabin.infoSource !== isCtrip --><span ng-if="cabin.infoSource !== isCtrip" uib-popover-template="popoverConfigs.ruleTip.template" popover-placement="auto bottom-left" popover-trigger="mouseenter" class="ng-scope">退改签</span><!-- end ngIf: cabin.infoSource !== isCtrip -->
+          <!-- ngIf: cabin.infoSource === isCtrip && cabin.policy.r1 -->
+          <!-- ngIf: cabin.baggage -->
+          <!-- ngIf: cabin.infoSource === PRODUCT_INFO_SOURCE.AIRLINE && isCivAirlineIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TWO_PARTIE && isCivTwoPartIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TRI_PARTITE && isCivThreePartIns
+            || cabin.infoSource === isCtrip && isCivCtripIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.B2T && isCivB2TIns -->
+          <span class="recomend">荐</span>
+        </div>
+
+        <div class="cabin-discount">
+          <span class="ng-binding">8.0折</span>
+        </div>
+
+
+        <div class="cabin-price" ng-class="{'isGov': key === '3'}">
+          <!-- ngIf: key === '3' -->
+          <span>￥</span>
+          <span class="price fs18 ng-binding" cabin-origin-price="3780">3780</span>
+        </div>
+
+        <div class="price-addition pointer wd40 pl0">
+          <!-- ngIf: cabin.infoSource === PRODUCT_INFO_SOURCE.AIRLINE && isCivAirlineIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TWO_PARTIE && isCivTwoPartIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.TRI_PARTITE && isCivThreePartIns
+            || cabin.infoSource === isCtrip && isCivCtripIns
+            || cabin.infoSource === PRODUCT_INFO_SOURCE.B2T && isCivB2TIns -->
+        </div>
+
+        <div class="cabin-actions">
+          <!-- ngIf: lpSelectVisible -->
+          <!-- ngIf: lpBookVisible --><button class="btn btn-orange fs12 ng-scope" ng-disabled="!cabin.price" ng-click="book(cabin);" ng-if="lpBookVisible">
+            预 订
+          </button><!-- end ngIf: lpBookVisible -->
+        </div>
+
+        <div class="cabin-left ng-binding">
+          1张
+        </div>
+        
+      </div><!-- end ngRepeat: cabin in cabins | orderBy : ['+price', '-quantity'] -->
+    </div>
+  </div>
+</body>
+</html>

@@ -4,23 +4,242 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    
-</body>
-<script>
-    function timeout(ms){
-        return new Promise((resolve)=>
-        {
-            setTimeout(resolve, 2000);
+    <!-- <form ng-app="" name="myForm">
+        <input type="email" name="myAddress" ng-model="text">
+        <span ng-show="myForm.myAddress.$error.email">不合法</span>
+    </form> -->
+
+    <!-- <form ng-app="" name="myForm" ng-init="myText ='test@runoob.com'">
+        <input type="email" name="myAddress" ng-model="myText" required>
+        <p>vaild:{{myForm.myAddress.$valid}}(判断是否合法)</p>
+        <p>Dirty:{{myForm.myAddress.$dirty}}(判断值是否改变)</p>
+        <p>Touched:{{myForm.myAddress.$touched}}(判断是否是触屏点击)</p>
+    </form> -->
+
+    <!-- <style>
+        input.ng-invalid{
+            background-color: lightpink;
+        }
+    </style>
+    <form ng-app="" name="myForm">
+        <input name="myName" ng-model="myText" required>
+    </form> -->
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <h1>{{carname}}</h1>
+    </div>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.carname = 'vv';
         })
+    </script> -->
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            <input ng-model="name">
+            <h1>{{greeting}}</h1>
+            <button ng-click='sayHello()'>点我</button>	
+        </div>
         
-    }
-    async function fun(value,ms){
-        await timeout(ms);
-        console.log(value);
-    }
-    fun(1,3000);
-</script>
+        <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.name = "Runoob";
+            $scope.sayHello = function() {
+                $scope.greeting = 'Hello ' + $scope.name + '!';
+            };
+        });
+        </script> -->
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            <ul>
+                <li ng-repeat="x in names">{{x}}</li>
+            </ul>
+        </div>
+        <script>
+            var app = angular.module('myApp',[]);
+            app.controller('myCtrl',function($scope){
+                $scope.names = ['email','tobias','linus'];
+            })
+        </script> -->
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            <h1>姓氏为{{lastname}}家族成员</h1>
+            <ul>
+                <li ng-repeat="x in names">{{x}}{{lastname}}</li>
+            </ul>
+        </div>
+        <script>
+            var app = angular.module('myApp',[]);
+            app.controller('myCtrl',function($scope,$rootScope){
+                $scope.names = ['email','tobias','linus'];
+                $rootScope.lastname = 'Refsnes';
+            })
+        </script> -->
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            <h1>{{lastname}家族成员：</h1>
+            <ul>
+                <li ng-repeat="x in names">{{x}} {{lastname}}</li>
+            </ul>
+        </div>
+        <div ng-controller="myCtrl_1">
+            <div>scope中的值是{{lastname_1}}</div>
+            <div>rootScope中的值是{{$root.lastname}}</div>
+        </div>
+        <script>
+            var app = angular.module('myApp',[]);
+            app.controller('myCtrl',function($scope,$rootScope){
+                $scope.names = ['email','tobias','linus'];
+                $rootScope.lastname = 'refsnes';
+            });
+            app.controller('myCtrl_1',function($scope,$rootScope){
+                $scope.lastname_1 = $rootScope.lastname;
+            })
+        </script> -->
+
+        <!-- <form ng-app="myApp" name="myForm" ng-init="myText = 'test'">
+            <div ng-controller="myCtrl">
+                {{myf + allf + mys + alls}} 
+            </div>
+            <div ng-controller="myCtrl2">
+                {{myf + allf + mys + alls }}
+            </div>
+        </form>
+        <script>
+            var app = angular.module('myApp',[]);
+            app.controller('myCtrl',['$scope','$rootScope',myCtrl]);
+            app.controller('myCtrl2',['$scope','$rootScope'],myCtrl2);
+            function myCtrl($scope,$rootScope){
+                $scope.myf = 1;
+                $rootScope.allf = '全局1';
+            }
+            function myCtrl2($scope,$rootScope){
+                $scope.mys = 2;
+                $rootScope.alls = '全局2';
+            }
+        </script> -->
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            <input type="text" ng-model="firstname">
+            <input type="text" ng-model="lastname">
+            {{firstname+" "+lastname}}
+        </div>
+        <script>
+            var app = angular.module('myApp',[]);
+            app.controller('myCtrl',function($scope){
+                $scope.firstname = 'huimin';
+                $scope.lastname = 'shao';
+            })
+        </script> -->
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            <input type="text" ng-model="firstname">
+            <input type="text" ng-model="lastname">
+            {{fullname()}}
+        </div> -->
+
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            <ul>
+                <li ng-repeat="x in names |filter:">
+                    {{x.name + x.country}}
+                </li>
+            </ul>
+        </div> -->
+       
+
+        <!-- <div ng-app="myApp">
+            <div ng-controller="myCtrl">
+                <div ng-bind="myName | uppercase"></div>
+                <div ng-bind="myName | lowercase"></div>
+                <div class="" ng-bind="money | currency :'￥'"></div>
+                <div class="" ng-repeat="v in city |orderBy:'id'">
+                    <p ng-bind="v.name"></p>
+                </div>
+                <div class="" ng-repeat="v in city | orderBy:'-id'|filter:''">
+                    <p ng-bind="v.name" style="color:red"></p>
+                </div>
+                <div class="" ng-bind="myName | aa" style="color:blue"></div>
+            </div>
+        </div> -->
+
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            newString:{{'jj'| myfilter:1:2:3:4:5}}
+        </div> -->
+
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            <p> 当前页面的url:</p>
+            <h3>{{myUrl}}</h3>
+        </div> -->
+        
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            {{myWelcom}}
+        </div> -->
+
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            <ul>
+                <li ng-repeat="x in names">
+                    {{x.name + " " + x.country}}
+                </li>
+            </ul>
+        </div> -->
+
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+             <select name="" id="" ng-init="selectedNa = names[0]" ng-model="selectedNa" ng-options="x for x in names"></select>
+        </div> -->
+
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            <select name="" id="">
+                <option value="" ng-repeat="x in names">{{x}}</option>
+            </select>
+        </div> -->
+
+
+        <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            <select name="" id="" ng-model="selectedSite" ng-options="x.sites for x in sites"></select>
+            {{selectedSite.site}}
+            {{selectedSite.url}}
+        </div> -->
+
+
+        <div ng-app="myApp" ng-controller="customersCtrl">
+            <table>
+                <tr ng-repeat="x in names">
+                    <td>{{x.name}}</td>
+                    <td>{{x.country}}</td>
+                </tr>
+            </table>
+        </div>
+</body>
+<script src="test.js"></script>
 </html>
+
+<div class="row row-line" ng-if="budget.planeBudgetList && budget.planeBudgetList.length">
+    <div class="row-left col-xs-1"><div class="left-name">飞机</div></div>
+    <div class="row-right col-xs-11">
+      
+      <div ng-repeat="planeBudget in budget.planeBudgetList">
+        <!-- 下面一句判断是为了写两个航班的往返地，只是为了写样式 -->
+        <div class="row-right-title" ng-if="planeBudget.recommendType === 0">苏州--无锡</div>
+        <span class="row-title">{{planeBudget.recommendType === 0 ? '最低价航班：' : '最高价航班：'}}</span>
+        <span class="row-content">{{planeBudget.airlineName}}</span>
+        <span class="row-content">{{planeBudget.airlineCode}}</span>
+        <span class="row-content">{{planeBudget.flightNo}}</span>
+        <span class="row-content">{{planeBudget.departureCode}}</span>
+        <span class="row-content">{{planeBudget.departureAirportCode}}</span>
+        <span class="row-content">{{planeBudget.arrivalCode}}</span>
+        <span class="row-content">{{planeBudget.arrivalAirportCode}}</span>
+     </div>
+    </div>
+  </div>
